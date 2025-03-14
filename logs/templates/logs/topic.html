@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+{% extends 'logs/base.html' %}
+
+{% block content %}
+
+	<h3>Тема: {{topic}}</h3>
+
+	{% for entry in entries %}
+		<p>
+			{{entry.text|linebreaks}}
+			(Дата создания: {{entry.date_added|date:'H:i d/m/Y'}})
+		</p>
+	{% empty %}
+		<p>Пока нет записей</p>
+	{% endfor %}
+
+{% endblock content %}
+</body>
+</html>
